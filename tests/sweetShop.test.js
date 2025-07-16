@@ -83,3 +83,15 @@ test('Returns all sweets when no filters are provided', () => {
   const result = shop.searchSweets({});
   expect(result.length).toBe(2);
 });
+
+test('Sort sweets by price ascending', () => {
+  const shop = new SweetShop();
+  shop.addSweet({ id: 1, name: "Barfi", category: "Milk-Based", price: 50, quantity: 5 });
+  shop.addSweet({ id: 2, name: "Ladoo", category: "Traditional", price: 30, quantity: 10 });
+  shop.addSweet({ id: 3, name: "Halwa", category: "Traditional", price: 40, quantity: 15 });
+
+  const sorted = shop.sortSweets("price", "asc");
+  expect(sorted[0].price).toBe(30);
+  expect(sorted[1].price).toBe(40);
+  expect(sorted[2].price).toBe(50);
+});

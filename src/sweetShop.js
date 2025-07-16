@@ -45,6 +45,30 @@ class SweetShop {
             return nameMatch && categoryMatch && priceMatch;
         });
     }
+
+    sortSweets(field, order = "asc") {
+        const validFields = ["price", "name"];
+        const validOrders = ["asc", "desc"];
+
+        if (!validFields.includes(field)) throw new Error("Invalid sort field");
+
+        if (!validOrders.includes(order)) throw new Error("Invalid sort order");
+
+        // clonning the array to avoid mutating the original
+        const sweetsCopy = [...this.sweets];
+
+        sweetsCopy.sort((a, b) => {
+            if (field === "price") return order === "asc" ? a.price - b.price : b.price - a.price;
+            else if (field === "name") {
+            return order === "asc"
+                ? a.name.localeCompare(b.name)
+                : b.name.localeCompare(a.name);
+            }
+        });
+
+        return sweetsCopy;
+    }
+
 }
 
 module.exports = SweetShop;
