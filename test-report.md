@@ -30,7 +30,6 @@ This document summarizes the test results for the Sweet Shop Management System, 
 - ✅ Restock sweets
 - ✅ Prevent invalid restocks (negative/zero quantity)
 
----
 
 ## Attached Screenshot
 
