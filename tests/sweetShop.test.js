@@ -57,4 +57,29 @@ test('Throws error when trying to delete a non-existent sweet', () => {
   }).toThrow('Sweet not found');
 });
 
+test('Search sweets by name, category, and price range', () => {
+  const shop = new SweetShop();
 
+  shop.addSweet({ id: 1, name: "Kaju Katli", category: "Nut-Based", price: 50, quantity: 10 });
+  shop.addSweet({ id: 2, name: "Gulab Jamun", category: "Milk-Based", price: 30, quantity: 20 });
+  shop.addSweet({ id: 3, name: "Soan Papdi", category: "Flaky", price: 40, quantity: 15 });
+
+  const result = shop.searchSweets({
+    name: "gulab",
+    category: "Milk-Based",
+    minPrice: 25,
+    maxPrice: 35
+  });
+
+  expect(result.length).toBe(1);
+  expect(result[0].name).toBe("Gulab Jamun");
+});
+
+test('Returns all sweets when no filters are provided', () => {
+  const shop = new SweetShop();
+  shop.addSweet({ id: 1, name: "Barfi", category: "Milk-Based", price: 40, quantity: 10 });
+  shop.addSweet({ id: 2, name: "Ladoo", category: "Traditional", price: 20, quantity: 15 });
+
+  const result = shop.searchSweets({});
+  expect(result.length).toBe(2);
+});

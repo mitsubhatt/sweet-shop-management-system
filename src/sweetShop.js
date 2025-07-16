@@ -32,6 +32,19 @@ class SweetShop {
         if(index == -1) throw new Error('Sweet not found');
         this.sweets.splice(index,1);
     }
+
+    searchSweets({ name, category, minPrice, maxPrice }) {
+        return this.sweets.filter(sweet => {
+            const nameMatch = name ? sweet.name.toLowerCase().includes(name.toLowerCase()) : true;
+            const categoryMatch = category ? sweet.category === category : true;
+            const priceMatch = (
+            (minPrice === undefined || sweet.price >= minPrice) &&
+            (maxPrice === undefined || sweet.price <= maxPrice)
+            );
+
+            return nameMatch && categoryMatch && priceMatch;
+        });
+    }
 }
 
 module.exports = SweetShop;
