@@ -12,6 +12,7 @@ This is a simple UI layer for a sweet shop inventory system, built as part of th
 
 
 [Live Demo](https://mitsubhatt.github.io/sweet-shop-management-system/)
+
 [View Full Test Report](./test-report.md)
 
 ---
@@ -40,9 +41,9 @@ All business logic is handled in a class-based approach inside `sweetShop.js`, w
 
 ## How to run this project
 
-git clone https://github.com/mitsubhatt/sweet-shop-management-system.git
-cd sweet-shop-management-system
-npm install
-npm test
+- git clone https://github.com/mitsubhatt/sweet-shop-management-system.git
+- cd sweet-shop-management-system
+- npm install
+- npm test
 
 You can also open index.html directly in a browser to use the UI.
