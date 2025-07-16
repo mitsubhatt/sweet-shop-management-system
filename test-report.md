@@ -1,8 +1,7 @@
-# 🧪 Test Report — SugarCoded
+# Test Report 
 
 This document summarizes the test results for the Sweet Shop Management System, created using a Test-Driven Development (TDD) approach with Jest.
 
----
 
 ## Test Summary
 
@@ -12,9 +11,8 @@ This document summarizes the test results for the Sweet Shop Management System, 
 - **Passed:** 19 ✅
 - **Failed:** 0 ❌
 
----
 
-## 🔍 Covered Test Scenarios
+## Covered Test Scenarios
 
 - ✅ Add a sweet to the shop
 - ✅ Prevent adding duplicate sweets (by ID or name)
