@@ -66,7 +66,7 @@ class SweetShop {
     }
 
     // INVENTORY MANAGEMENT
-    purchaseSweets(id,quantity){
+    purchaseSweet(id,quantity){
 
         if(quantity<=0) throw new Error('Quantity must be greater than zero');
 
@@ -76,6 +76,16 @@ class SweetShop {
         if(sweet.quantity < quantity) throw new Error('Not enough stock available');
 
         sweet.quantity -= quantity;
+    }
+
+    restockSweet(id,quantity){
+
+        if(quantity<=0) throw new Error('Restock quantity must be greater than zero');
+
+        const sweet = this.sweets.find(s => s.id == id);
+        if(!sweet) throw new Error('Sweet not found');
+
+        sweet.quantity += quantity;
     }
     
 }
