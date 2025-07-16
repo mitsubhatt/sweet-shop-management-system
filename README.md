@@ -8,14 +8,12 @@ This is a simple UI layer for a sweet shop inventory system, built as part of th
 
 > The real flavor (logic + tests) is in the codebase. The Ui is just for basic add and delete :)
 
----
 
 
 [Live Demo](https://mitsubhatt.github.io/sweet-shop-management-system/)
 
 [View Full Test Report](./test-report.md)
 
----
 
 ## Features
 
@@ -25,7 +23,6 @@ This is a simple UI layer for a sweet shop inventory system, built as part of th
 - Smooth transitions and dynamic rendering
 - Responsive & lightweight frontend
 
----
 
 ## TDD Implementation
 
@@ -37,7 +34,6 @@ All business logic is handled in a class-based approach inside `sweetShop.js`, w
 - Deleting sweets
 - Returning current inventory
 
----
 
 ## How to run this project
 
