@@ -28,6 +28,21 @@ class SweetShop {
         this.sweets.splice(index,1);
     }
 
+    updateSweetDetails(id, updates){
+        const sweet = this.sweets.find(s => s.id == id);
+        if(!sweet) throw new Error('Sweet not found');
+
+        const allowedFields = ["name", "quantity", "price"];
+        for(const key in updates){
+            if(!allowedFields.includes(key)) throw new Error(`Cannot update field: ${key}`);
+            if(key == "price" && updates[key] < 0) throw new Error('Price must be non-negative');
+            if(key == "name" && updates[key].trim() == "") throw new Error('Name cannot be empty');
+
+            sweet[key] = updates[key];
+        }
+    }
+
+
     // SEARCH & SORT FEATURES
     searchSweets({ name, category, minPrice, maxPrice }) {
         return this.sweets.filter(sweet => {
@@ -64,6 +79,7 @@ class SweetShop {
 
         return sweetsCopy;
     }
+    
 
     // INVENTORY MANAGEMENT
     purchaseSweet(id,quantity){
@@ -87,7 +103,6 @@ class SweetShop {
 
         sweet.quantity += quantity;
     }
-    
 }
 
 module.exports = SweetShop;

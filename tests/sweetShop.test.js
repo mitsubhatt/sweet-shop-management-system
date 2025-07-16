@@ -58,6 +58,37 @@ test('Throws error when trying to delete a non-existent sweet', () => {
   }).toThrow('Sweet not found');
 });
 
+test('Update sweet details correctly', () => {
+    const shop = new SweetShop();
+    shop.addSweet({id:1, name:'Gulab Jamun',category:'Milk-based',price:50, quantity:15});
+
+    shop.updateSweetDetails(1, {
+        name:'Motichoor Laddoo',
+        price:55
+    });
+    const sweets = shop.viewSweets();
+    expect(sweets[0].name).toBe('Motichoor Laddoo');
+    expect(sweets[0].price).toBe(55);
+});
+
+test('Throws error for updating non-existent sweet', () => {
+  const shop = new SweetShop();
+
+  expect(() => {
+    shop.updateSweetDetails(99, { name: "Updated Name" });
+  }).toThrow("Sweet not found");
+});
+
+test('Throws error for invalid update field', () => {
+  const shop = new SweetShop();
+  shop.addSweet({ id: 2, name: "Halwa", category: "Traditional", price: 30, quantity: 5 });
+
+  expect(() => {
+    shop.updateSweetDetails(2, { color: "Red" });
+  }).toThrow("Cannot update field: color");
+});
+
+
 // SEARCH & SORT FEATURES
 test('Search sweets by name, category, and price range', () => {
   const shop = new SweetShop();
@@ -97,6 +128,7 @@ test('Sort sweets by price ascending', () => {
   expect(sorted[1].price).toBe(40);
   expect(sorted[2].price).toBe(50);
 });
+
 
 // INVENTORY MANAGEMENT
 test('Successfully purchase a sweet and update the quantity ', () => {
