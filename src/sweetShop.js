@@ -3,23 +3,18 @@ class SweetShop {
         this.sweets = [];
     }
 
+    // OPERATIONS
     addSweet(sweet) {
         
         const requiredFields = ['id','name','category','price','quantity'];
 
         for(let field of requiredFields){
-            if(!(field in sweet)){
-                throw new Error(`Missing required field: ${field}`);
-            }
+            if(!(field in sweet)) throw new Error(`Missing required field: ${field}`);
         }
 
-        if(this.sweets.some(s => s.id == sweet.id)){
-            throw new Error('Sweet with this id already exists!');
-        }
+        if(this.sweets.some(s => s.id == sweet.id)) throw new Error('Sweet with this id already exists!');
 
-        if(sweet.price<0 || sweet.quantity<0){
-            throw new Error('Price and quantity must be non-negative');
-        }
+        if(sweet.price<0 || sweet.quantity<0) throw new Error('Price and quantity must be non-negative');
         this.sweets.push(sweet);
     }
 
@@ -33,6 +28,7 @@ class SweetShop {
         this.sweets.splice(index,1);
     }
 
+    // SEARCH & SORT FEATURES
     searchSweets({ name, category, minPrice, maxPrice }) {
         return this.sweets.filter(sweet => {
             const nameMatch = name ? sweet.name.toLowerCase().includes(name.toLowerCase()) : true;
@@ -69,6 +65,19 @@ class SweetShop {
         return sweetsCopy;
     }
 
+    // INVENTORY MANAGEMENT
+    purchaseSweets(id,quantity){
+
+        if(quantity<=0) throw new Error('Quantity must be greater than zero');
+
+        const sweet = this.sweets.find(s => s.id == id);
+        if(!sweet) throw new Error('Sweet not found');
+        
+        if(sweet.quantity < quantity) throw new Error('Not enough stock available');
+
+        sweet.quantity -= quantity;
+    }
+    
 }
 
 module.exports = SweetShop;
