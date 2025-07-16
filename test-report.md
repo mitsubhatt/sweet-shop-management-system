@@ -33,6 +33,6 @@ This document summarizes the test results for the Sweet Shop Management System, 
 
 ## Attached Screenshot
 
-A screenshot of the terminal showing all passing tests is included in the repository as: `test-report.png`
+A screenshot of the terminal showing all passing tests is included in the repository as: `/assets/test-report.png`
 
 
