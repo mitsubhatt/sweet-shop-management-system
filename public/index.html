@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sweet Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="wrapper">
+    <h1 class="brand-title">SugarCoded</h1>
+    <p class="tagline">Traditionally inspired. Digitally delivered</p>
+
+    <form id="addSweetForm">
+        <input type="text" placeholder="Name" id="name" required>
+        <input type="text" placeholder="Category" id="category" required>
+        <input type="number" placeholder="Price" id="price" required>
+        <input type="number" placeholder="Quantity" id="quantity" required>
+        <button type="submit">Add Sweet</button>
+    </form>
+    <br />
+
+    <h2 class="section-title">Inventory</h2>
+    <table id="sweetTable">
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="sweetTableBody"></tbody>
+    </table>
+    </div>
+
+    <footer>
+        Designed by <strong>Mitsu Bhatt</strong>
+        <a href="https://github.com/mitsubhatt" target="_blank">Explore the code behind the sweets</a>
+        <small style="display:block; margin-top: 0.2rem;">Core logic & test cases live in the repo.</small>
+    </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
